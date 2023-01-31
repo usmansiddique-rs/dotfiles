@@ -12,4 +12,6 @@ require("usman.core.options")
 require("usman.plugins.comment")
 require("usman.plugins.nvim-tree")
 require("usman.plugins.lualine")
+require("usman.plugins.telescope")
+require("usman.plugins.nvim-cmp")
 
