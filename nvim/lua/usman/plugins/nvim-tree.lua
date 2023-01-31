@@ -8,7 +8,7 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
--- set nvim-tree fodler arrow colors
+-- set nvim-tree folder arrow colors
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
