@@ -1,3 +1,7 @@
 *.zip
 *.tar.gz
 *.dmg
+
+# neovim packer
+nvim/plugin
+nvim/run_conf.sh
