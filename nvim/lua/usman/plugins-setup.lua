@@ -50,7 +50,16 @@ return require('packer').startup(function(use)
     use("nvim-lualine/lualine.nvim")
     -- fuzzy finding
     use({"nvim-telescope/telescope-fzf-native.nvim", run="make"}) -- dependency to make telescope better
-    use({"nvim-telescope/telescope.nvim", branch="0.1.x"})
+    use({"nvim-telescope/telescope.nvim", tag="0.1.1"})
+    -- autocompletion
+    use("hrsh7th/nvim-cmp")     -- basic autocompletion
+    use("hrsh7th/cmp-buffer")   -- recommend text from current buffer for vars
+    use("hrsh7th/cmp-path")     -- recommend text from current buffer for paths
+    -- code snippets
+    use("L3MON4D3/LuaSnip")             -- snippet engine
+    use("saadparwaiz1/cmp_luasnip")     -- allows nvim-cmp to show snippets in autocompletion
+    use("rafamadriz/friendly-snippets") -- collection of useful snippets
+
 
     -- essential plugins
     use("tpope/vim-surround")
