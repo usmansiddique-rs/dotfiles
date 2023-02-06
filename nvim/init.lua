@@ -14,4 +14,4 @@ require("usman.plugins.nvim-tree")
 require("usman.plugins.lualine")
 require("usman.plugins.telescope")
 require("usman.plugins.nvim-cmp")
-
+require("usman.plugins.indent")
