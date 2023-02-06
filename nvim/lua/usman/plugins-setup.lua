@@ -46,6 +46,8 @@ return require('packer').startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     -- file icons
     use("kyazdani42/nvim-web-devicons")
+    -- indent blankline
+    use("lukas-reineke/indent-blankline.nvim")
     -- statusline
     use("nvim-lualine/lualine.nvim")
     -- fuzzy finding
