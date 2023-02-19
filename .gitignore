@@ -5,3 +5,8 @@
 # neovim packer
 nvim/plugin
 nvim/run_conf.sh
+
+# vim plugins dir
+vim/.vim/backup/*
+vim/.vim/plugged/*
+vim/.vim/.netrwhist
