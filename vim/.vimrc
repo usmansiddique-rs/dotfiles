@@ -1,10 +1,10 @@
-" ============================================================================= 
+" =============================================================================
 " =================================================================== Settings
 " =============================================================================
 
 set encoding=UTF-8
 set termguicolors   " enable true colors support
-set nocompatible    " disable compatibility with vi 
+set nocompatible    " disable compatibility with vi
 
 filetype on         " enable type file detection.
 filetype plugin on  " enable and load plugins for any file type.
@@ -25,6 +25,7 @@ set shiftwidth=4    " set shift width to N spaces.
 set tabstop=4       " set tab width to N columns.
 
 set nobackup        " dont save backup files.
+set updatetime=100  " controls delay before vim writes to swap.
 set scrolloff=10    " scroll line limit.
 set nowrap          " disable wrapping lines.
 
@@ -44,7 +45,7 @@ set wildmode=list:longest   " Make wildmenu behave like similar to Bash completi
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-" ============================================================================= 
+" =============================================================================
 " =================================================================== Plugins
 " =============================================================================
 " Using vim-plug as a plugin-manager: https://github.com/junegunn/vim-plug
@@ -52,57 +53,47 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-" ============================== List of plugins start
+" ------------------------------------------------------------------- List of plugins start
 
 " Collection of language packs for Vim for syntax highlighting and indentation
 Plug 'sheerun/vim-polyglot'
+
 " Tree explorer
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 " Vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Delete/change/add parentheses/quotes/XML-tags/much more with ease
-Plug 'tpope/vim-surround'
 " Remove trailing whitespaces
 Plug 'bronson/vim-trailing-whitespace'
 " Indent lines
 Plug 'Yggdroot/indentLine'
-
-" Integrates Git and shows git diff in sign column
-" Plug 'airblade/vim-gitgutter'
 " Code commenting
-" Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
+" Integrates Git and shows git diff in sign column
+Plug 'airblade/vim-gitgutter'
 
 
 
-
-
-
-
-
+" Delete/change/add parentheses/quotes/XML-tags/much more with ease
+" Plug 'tpope/vim-surround'
 " asynchronous lint engine
 " Plug 'dense-analysis/ale'
+
 " colorschemes
-Plug 'ayu-theme/ayu-vim'
+Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
 
-" ============================== List of plugins end
-
-" try this as well: https://www.makeuseof.com/best-vim-plugins/
-" colorschemes: https://vimcolorschemes.com/dark/top
+" ------------------------------------------------------------------- List of plugins end
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" Set the color scheme
-" colorscheme molokai
-" colorscheme monokai
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" try this as well: https://www.makeuseof.com/best-vim-plugins/
+" colorschemes: https://vimcolorschemes.com/dark/top
 
-" ============================================================================= 
+colorscheme nightfly
+
+" =============================================================================
 " =================================================================== Keymappings
 " =============================================================================
 
@@ -115,10 +106,10 @@ let mapleader = " "     " map leader key to spacebar
 
 inoremap jk <esc>       " map Esc key to jk
 
-" Pane creation 
+" Pane creation
 nnoremap <leader>sv <C-w>v      " split window vertically
 nnoremap <leader>sh <C-w>s      " split window horizontally
-nnoremap <leader>se <C-w>=      " make split window width equal 
+nnoremap <leader>se <C-w>=      " make split window width equal
 nnoremap <leader>sx :close<CR>  " close current split window
 
 " Navigate the split view using CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
@@ -138,14 +129,19 @@ noremap <leader>to :tabnew<CR>      " open new tab
 noremap <leader>tx :tabclose<CR>    " close current tab
 
 " Navigate between tabs
-noremap <leader>tn :tabn<CR>        " go to next tab 
+noremap <leader>tn :tabn<CR>        " go to next tab
 noremap <leader>tp :tabp<CR>        " go to previous tab
-noremap <leader>t0 :tabfirst<CR>    " go to first tab 
+noremap <leader>t0 :tabfirst<CR>    " go to first tab
 noremap <leader>t$ :tablast<CR>     " go to last tab
 
-nnoremap <leader>e :NERDTreeToggle<CR>  " toggle nerdtree
+" Toggle nerdtree
+nnoremap <leader>e :NERDTreeToggle<CR>
 
-" ============================================================================= 
+" Jumping between git hunks
+nmap ]h <Plug>(GitGutterNextHunk)   " jump to next hunk
+nmap [h <Plug>(GitGutterPrevHunk)   " jump to previous hunk
+
+" =============================================================================
 " =================================================================== Vimscript
 " =============================================================================
 
@@ -163,6 +159,7 @@ if version >= 703
     set undoreload=10000
 endif
 
+" ------------------------------------------------------------------- NerdTree
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
@@ -170,9 +167,7 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" ============================================================================= 
-" =================================================================== Status Line
-" =============================================================================
+" ------------------------------------------------------------------- Status Line
 
 " Status line theme
 let g:airline_theme='powerlineish'
@@ -184,9 +179,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " How file paths are displayed in each individual tab
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" ============================================================================= 
-" =================================================================== Indent Line
-" =============================================================================
+" ------------------------------------------------------------------- Indent Line
 
 " IndentLine will overwrite 'conceal' color with grey by default
 let g:indentLine_setColors = 1
@@ -194,3 +187,31 @@ let g:indentLine_setColors = 1
 let g:indentLine_defaultGroup = 'SpecialKey'
 " Indent char
 let g:indentLine_char = '▏'
+
+" ------------------------------------------------------------------- Colorscheme Nightfly
+
+" Colored cursor
+let g:nightflyCursorColor = v:true
+" Enable italics for comments, tags, etc
+let g:nightflyItalics = v:true
+" Enable theme colors in terminal
+let g:nightflyTerminalColors = v:true
+" Enable undercurls for spelling and linting errors
+let g:nightflyUndercurls = v:true
+" Window separators
+let g:nightflyWinSeparator = 2
+
+" ------------------------------------------------------------------- Git Gutter
+
+" Turn on vim-gitgutter by default
+let g:gitgutter_enabled = 1
+" Turn on signs by default
+let g:gitgutter_signs = 1
+" Turn on line highlighting by default
+let g:gitgutter_highlight_lines = 0
+" Turn on line number highlighting by default
+let g:gitgutter_highlight_linenrs = 1
+" Turn off asynchronous updates
+let g:gitgutter_async = 1
+" Set sign threshold
+let g:gitgutter_max_signs = -1
