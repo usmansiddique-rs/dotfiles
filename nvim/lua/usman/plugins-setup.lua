@@ -1,4 +1,4 @@
--- installs packer if its not installed when we open nvim
+-- installs packer plugin manager if its not installed when we open nvim
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -28,44 +28,12 @@ end
 -- configure our plugins
 return require('packer').startup(function(use)
     -- install packer
-    use("wbthomason/packer.nvim")
-    use("nvim-lua/plenary.nvim")
-    
-    -- themes
-    use("bluz71/vim-nightfly-colors")       -- https://github.com/bluz71/vim-nightfly-colors
-    -- use("patstockwell/vim-monokai-tasty")   -- https://github.com/patstockwell/vim-monokai-tasty 
-    -- use("EdenEast/nightfox.nvim")           -- https://github.com/EdenEast/nightfox.nvim
-    -- use("morhetz/gruvbox")
-    -- tmux and split window navigation")
-    use("christoomey/vim-tmux-navigator")
-    -- maximizes and restores current window
-    use("szw/vim-maximizer")
-    -- commenting with gc
-    use("numtoStr/Comment.nvim")
-    -- file explorer
-    use("nvim-tree/nvim-tree.lua")
-    -- file icons
-    use("kyazdani42/nvim-web-devicons")
-    -- indent blankline
-    use("lukas-reineke/indent-blankline.nvim")
-    -- statusline
-    use("nvim-lualine/lualine.nvim")
-    -- fuzzy finding
-    use({"nvim-telescope/telescope-fzf-native.nvim", run="make"}) -- dependency to make telescope better
-    use({"nvim-telescope/telescope.nvim", tag="0.1.1"})
-    -- autocompletion
-    use("hrsh7th/nvim-cmp")     -- basic autocompletion
-    use("hrsh7th/cmp-buffer")   -- recommend text from current buffer for vars
-    use("hrsh7th/cmp-path")     -- recommend text from current buffer for paths
-    -- code snippets
-    use("L3MON4D3/LuaSnip")             -- snippet engine
-    use("saadparwaiz1/cmp_luasnip")     -- allows nvim-cmp to show snippets in autocompletion
-    use("rafamadriz/friendly-snippets") -- collection of useful snippets
+    use("wbthomason/packer.nvim")       -- packer plugin manager
+    use("nvim-lua/plenary.nvim")        -- common utilities
+    use("kyazdani42/nvim-web-devicons") -- file icons
+    use({"nvim-lualine/lualine.nvim", requires = {'kyazdani42/nvim-web-devicons', opt = true}})    -- statusline
+    use("nvim-tree/nvim-tree.lua")      -- file explorer
 
-
-    -- essential plugins
-    use("tpope/vim-surround")
-    use("vim-scripts/ReplaceWithRegister")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
