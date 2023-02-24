@@ -34,6 +34,11 @@ return require('packer').startup(function(use)
     use({"nvim-lualine/lualine.nvim", requires = {'kyazdani42/nvim-web-devicons', opt = true}})    -- statusline
     use("nvim-tree/nvim-tree.lua")      -- file explorer
 
+    -- colorschemes
+    use("bluz71/vim-nightfly-colors")       -- nightfly
+    use("patstockwell/vim-monokai-tasty")   -- monokai
+    use("EdenEast/nightfox.nvim")           -- nightbox
+    use("morhetz/gruvbox")                  -- gruvbox
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -41,3 +46,30 @@ return require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
+
+
+
+-- -- tmux and split window navigation")
+-- use("christoomey/vim-tmux-navigator")
+-- -- maximizes and restores current window
+-- use("szw/vim-maximizer")
+-- -- commenting with gc
+-- use("numtoStr/Comment.nvim")
+-- -- indent blankline
+-- use("lukas-reineke/indent-blankline.nvim")
+-- -- fuzzy finding
+-- use({"nvim-telescope/telescope-fzf-native.nvim", run="make"}) -- dependency to make telescope better
+-- use({"nvim-telescope/telescope.nvim", tag="0.1.1"})
+-- -- autocompletion
+-- use("hrsh7th/nvim-cmp")     -- basic autocompletion
+-- use("hrsh7th/cmp-buffer")   -- recommend text from current buffer for vars
+-- use("hrsh7th/cmp-path")     -- recommend text from current buffer for paths
+-- -- code snippets
+-- use("L3MON4D3/LuaSnip")             -- snippet engine
+-- use("saadparwaiz1/cmp_luasnip")     -- allows nvim-cmp to show snippets in autocompletion
+-- use("rafamadriz/friendly-snippets") -- collection of useful snippets
+
+
+-- -- essential plugins
+-- use("tpope/vim-surround")
+-- use("vim-scripts/ReplaceWithRegister")
