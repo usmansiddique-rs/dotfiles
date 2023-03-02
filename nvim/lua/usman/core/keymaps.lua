@@ -50,8 +50,9 @@ keymap.set("n", "<leader>t$", ":tablast<CR>")   -- go to last tab
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
--- -- vim-maximizer
--- keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")   -- maximize and restore a split window
+-- vim-maximizer
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")   -- maximize and restore a split window
+
 
 -- -- telescope
 -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")  -- find files within current working directory, respects .gitignore
