@@ -28,13 +28,14 @@ end
 -- configure our plugins
 return require('packer').startup(function(use)
     -- install packer
-    use("wbthomason/packer.nvim")       -- packer plugin manager
-    use("nvim-lua/plenary.nvim")        -- common utilities
-    use("kyazdani42/nvim-web-devicons") -- file icons
+    use("wbthomason/packer.nvim")               -- packer plugin manager
+    use("nvim-lua/plenary.nvim")                -- common utilities
+    use("kyazdani42/nvim-web-devicons")         -- file icons
     use({"nvim-lualine/lualine.nvim", requires = {'kyazdani42/nvim-web-devicons', opt = true}})    -- statusline
-    use("nvim-tree/nvim-tree.lua")      -- file explorer
-    use("szw/vim-maximizer")            -- maximizes and restores current window
-    use("numtoStr/Comment.nvim")        -- auto commenting
+    use("nvim-tree/nvim-tree.lua")              -- file explorer
+    use("szw/vim-maximizer")                    -- maximizes and restores current window
+    use("numtoStr/Comment.nvim")                -- auto commenting
+    use("lukas-reineke/indent-blankline.nvim")  -- indent blankline
 
 
     -- colorschemes
@@ -54,8 +55,6 @@ end)
 
 -- -- tmux and split window navigation")
 -- use("christoomey/vim-tmux-navigator")
--- -- indent blankline
--- use("lukas-reineke/indent-blankline.nvim")
 -- -- fuzzy finding
 -- use({"nvim-telescope/telescope-fzf-native.nvim", run="make"}) -- dependency to make telescope better
 -- use({"nvim-telescope/telescope.nvim", tag="0.1.1"})
