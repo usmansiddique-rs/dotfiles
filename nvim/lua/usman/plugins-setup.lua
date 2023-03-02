@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
     use({"nvim-lualine/lualine.nvim", requires = {'kyazdani42/nvim-web-devicons', opt = true}})    -- statusline
     use("nvim-tree/nvim-tree.lua")      -- file explorer
     use("szw/vim-maximizer")            -- maximizes and restores current window
-
+    use("numtoStr/Comment.nvim")        -- auto commenting
 
 
     -- colorschemes
@@ -54,8 +54,6 @@ end)
 
 -- -- tmux and split window navigation")
 -- use("christoomey/vim-tmux-navigator")
--- -- commenting with gc
--- use("numtoStr/Comment.nvim")
 -- -- indent blankline
 -- use("lukas-reineke/indent-blankline.nvim")
 -- -- fuzzy finding
