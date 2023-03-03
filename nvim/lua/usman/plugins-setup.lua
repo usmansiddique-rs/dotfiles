@@ -28,21 +28,33 @@ end
 -- configure our plugins
 return require('packer').startup(function(use)
     -- install packer
-    use("wbthomason/packer.nvim")               -- packer plugin manager
-    use("nvim-lua/plenary.nvim")                -- common utilities
-    use("kyazdani42/nvim-web-devicons")         -- file icons
-    use({"nvim-lualine/lualine.nvim", requires = {'kyazdani42/nvim-web-devicons', opt = true}})    -- statusline
-    use("nvim-tree/nvim-tree.lua")              -- file explorer
-    use("szw/vim-maximizer")                    -- maximizes and restores current window
-    use("numtoStr/Comment.nvim")                -- auto commenting
-    use("lukas-reineke/indent-blankline.nvim")  -- indent blankline
+    use{'wbthomason/packer.nvim'}               -- packer plugin manager
+    use{'nvim-lua/plenary.nvim'}                -- common utilities
+    use{'kyazdani42/nvim-web-devicons'}         -- file icons
+    use{'nvim-lualine/lualine.nvim',            -- statusline
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+    use{'nvim-tree/nvim-tree.lua'}              -- file explorer
+    use{'szw/vim-maximizer'}                    -- maximizes and restores current window
+    use{'numtoStr/Comment.nvim'}                -- auto commenting
+    use{'nvim-treesitter/nvim-treesitter',      -- treesitter: for highlighting, indentation, folding
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
+    use{'lukas-reineke/indent-blankline.nvim',  -- indent blankline
+        requires = {'nvim-treesitter/nvim-treesitter', opt = true}
+    }
+
+
 
 
     -- colorschemes
-    use("bluz71/vim-nightfly-colors")       -- nightfly
-    use("patstockwell/vim-monokai-tasty")   -- monokai
-    use("EdenEast/nightfox.nvim")           -- nightbox
-    use("morhetz/gruvbox")                  -- gruvbox
+    use("bluz71/vim-nightfly-colors")           -- nightfly
+    use("patstockwell/vim-monokai-tasty")       -- monokai
+    use("EdenEast/nightfox.nvim")               -- nightbox
+    use("morhetz/gruvbox")                      -- gruvbox
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
