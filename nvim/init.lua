@@ -15,5 +15,6 @@ require("usman.plugins.lualine")
 require("usman.plugins.comment")
 require("usman.plugins.nvim-treesitter")
 require("usman.plugins.indent")
+require("usman.plugins.nvim-cmp")
+
 -- require("usman.plugins.telescope")
--- require("usman.plugins.nvim-cmp")

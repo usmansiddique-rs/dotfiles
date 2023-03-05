@@ -46,8 +46,14 @@ return require('packer').startup(function(use)
     use{'lukas-reineke/indent-blankline.nvim',  -- indent blankline
         requires = {'nvim-treesitter/nvim-treesitter', opt = true}
     }
-
-
+    use{"hrsh7th/nvim-cmp"}                     -- completion engine plugin
+    use{"hrsh7th/cmp-buffer"}                   -- nvim-cmp source for buffer completions
+    use{"hrsh7th/cmp-path"}                     -- nvim-cmp source for paths completions
+    use{"hrsh7th/cmp-cmdline"}                  -- nvim-cmp source for vim command line completions
+    use{'hrsh7th/cmp-nvim-lsp'}                 --
+    use{'L3MON4D3/LuaSnip'}                     -- snippet engine
+    use{"saadparwaiz1/cmp_luasnip"}             -- luasnip completion source for nvim-cmp
+    use{"rafamadriz/friendly-snippets"}         -- preconfigured snippets for different languages.
 
 
     -- colorschemes
@@ -70,14 +76,6 @@ end)
 -- -- fuzzy finding
 -- use({"nvim-telescope/telescope-fzf-native.nvim", run="make"}) -- dependency to make telescope better
 -- use({"nvim-telescope/telescope.nvim", tag="0.1.1"})
--- -- autocompletion
--- use("hrsh7th/nvim-cmp")     -- basic autocompletion
--- use("hrsh7th/cmp-buffer")   -- recommend text from current buffer for vars
--- use("hrsh7th/cmp-path")     -- recommend text from current buffer for paths
--- -- code snippets
--- use("L3MON4D3/LuaSnip")             -- snippet engine
--- use("saadparwaiz1/cmp_luasnip")     -- allows nvim-cmp to show snippets in autocompletion
--- use("rafamadriz/friendly-snippets") -- collection of useful snippets
 
 
 -- -- essential plugins

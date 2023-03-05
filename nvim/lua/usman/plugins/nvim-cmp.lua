@@ -1,19 +1,19 @@
--- import the nvim-cmp plugin
+-- import the nvim-cmp plugin: for autocompletion
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
-  return
+    return
 end
 
--- import the luasnip plugin
+-- import the luasnip plugin: for code snippets
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
-  return
+    return
 end
 
 -- import the lspkind plugin
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
-  return
+    return
 end
 
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
