@@ -45,7 +45,8 @@ return require('packer').startup(function(use)
     use "nvim-lua/plenary.nvim"     -- Useful lua functions used in lots of plugins
 
 
-
+    -- colorschemes
+    use "lunarvim/darkplus.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
