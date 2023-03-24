@@ -20,19 +20,19 @@ vim.g.maplocalleader = " "
 
 -- ========================= Normal =========================
 
--- pane creation
+-- pane creation: Leader + sv/sh/se/sx
 keymap("n", "<leader>sv", "<C-w>v", opts)       -- split window vertically
 keymap("n", "<leader>sh", "<C-w>s", opts)       -- split window horizontally
 keymap("n", "<leader>se", "<C-w>=", opts)       -- make split window width equal
 keymap("n", "<leader>sx", ":close<CR>", opts)   -- close current split window
 
--- pane navigation: Ctrl up/down/right/left
+-- pane navigation: Ctrl + up/down/right/left
 keymap("n", "<C-Up>", "<C-w>k", opts)           -- move to pane above
 keymap("n", "<C-Down>", "<C-w>j", opts)         -- move to pane below
 keymap("n", "<C-Right>", "<C-w>l", opts)        -- move to pane left
 keymap("n", "<C-Left>", "<C-w>h", opts)         -- move to pane right
 
--- pane resizing: Ctrl k/j/l/h
+-- pane resizing: Ctrl + k/j/l/h
 keymap("n", "<C-k>", ":resize +2<CR>", opts)            -- resize up
 keymap("n", "<C-j>", ":resize -2<CR>", opts)            -- resize down
 keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)   -- resize right
@@ -42,21 +42,21 @@ keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)   -- resize left
 keymap("n", "<S-l>", ":bnext<CR>", opts)            -- go to next buffer
 keymap("n", "<S-h>", ":bprevious<CR>", opts)        -- go to previous buffer
 
--- tab creation
+-- tab creation: Leader + to/tx
 keymap("n", "<leader>to", ":tabnew<CR>", opts)      -- open new tab
 keymap("n", "<leader>tx", ":tabclose<CR>", opts)    -- close current tab
 
--- tab navigation
+-- tab navigation: Leader + tn/tp/t0/t$
 keymap("n", "<leader>tn", ":tabn<CR>", opts)        -- go to next tab
 keymap("n", "<leader>tp", ":tabp<CR>", opts)        -- go to previous tab
 keymap("n", "<leader>t0", ":tabfirst<CR>", opts)    -- go to first tab
 keymap("n", "<leader>t$", ":tablast<CR>", opts)     -- go to last tab
 
--- tree view toggle (Lexplorer)
+-- tree view toggle (Lexplorer): Leader + e
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- ========================= Insert =========================
--- Press jk fast to enter
+-- Press jk fast to enter normal mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- ========================= Visual =========================
