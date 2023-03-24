@@ -11,8 +11,8 @@ local colorscheme = "nightfly"
 -- local colorscheme = "carbonfox"
 -- local colorscheme = "gruvbox"
 
--- protected func call
-
+-- protected function call
+-- import the colorschemes plugin
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
     vim.notify("colorscheme " .. colorscheme .. " not found!")

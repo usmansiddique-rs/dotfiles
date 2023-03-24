@@ -6,7 +6,7 @@ vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the s
 
 -- appearence
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
-vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showmode = true                         -- we don't need to see things like -- INSERT -- anymore
 vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 vim.opt.background = "dark"                     -- set background color.
 vim.opt.signcolumn = "yes"                      --
