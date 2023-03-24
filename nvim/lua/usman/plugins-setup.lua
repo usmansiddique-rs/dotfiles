@@ -40,9 +40,9 @@ packer.init {
 -- Install your plugins here
 return require('packer').startup(function(use)
     -- My plugins here
-    use "wbthomason/packer.nvim"    -- Have packer manage itself
-    use "nvim-lua/popup.nvim"       -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim"     -- Useful lua functions used in lots of plugins
+    use "wbthomason/packer.nvim"            -- Have packer manage itself
+    use "nvim-lua/popup.nvim"               -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"             -- Useful lua functions used in lots of plugins
     -- autocompletion
     use "hrsh7th/nvim-cmp"                  -- completion engine plugin
     use "hrsh7th/cmp-buffer"                -- nvim-cmp source for buffer completions
@@ -53,6 +53,12 @@ return require('packer').startup(function(use)
     use "L3MON4D3/LuaSnip"                  -- snippet engine
     use "saadparwaiz1/cmp_luasnip"          -- luasnip completion source for nvim-cmp
     use "rafamadriz/friendly-snippets"      -- preconfigured snippets for different languages
+    -- lsp
+    use "neovim/nvim-lspconfig"             -- enable LSP
+    use "williamboman/mason.nvim"           -- install and manage LSP and DAP servers, linters, formatters
+    use "williamboman/mason-lspconfig.nvim" -- bridges mason.nvim with nvim-lspconfig
+    use "jose-elias-alvarez/null-ls.nvim"   -- inject LSP diagnostics, code actions and more
+
 
 
     -- colorschemes
