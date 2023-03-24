@@ -47,6 +47,11 @@ return require('packer').startup(function(use)
 
     -- colorschemes
     use "lunarvim/darkplus.nvim"
+    use "bluz71/vim-nightfly-colors"
+    use "patstockwell/vim-monokai-tasty"
+    use "EdenEast/nightfox.nvim"
+    use "morhetz/gruvbox"
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
