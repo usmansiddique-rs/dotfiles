@@ -6,3 +6,4 @@ require "usman.colorscheme"     -- import colorscheme
 require "usman.autocompletion"  -- import autocompletion
 
 require "usman.lsp"             -- import the lsp folder
+require "usman.treesitter"      -- import treesitter

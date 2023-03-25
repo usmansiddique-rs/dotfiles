@@ -58,7 +58,16 @@ return require('packer').startup(function(use)
     use "williamboman/mason.nvim"           -- install and manage LSP and DAP servers, linters, formatters
     use "williamboman/mason-lspconfig.nvim" -- bridges mason.nvim with nvim-lspconfig
     use "jose-elias-alvarez/null-ls.nvim"   -- inject LSP diagnostics, code actions and more
-
+    -- telescope
+    -- treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
+    -- use "nvim-treesitter/playground"
 
 
     -- colorschemes
