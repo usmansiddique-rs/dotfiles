@@ -4,7 +4,7 @@
 
 -- list of servers to be installed
 local servers = {
-	"sumneko_lua"
+	-- "sumneko_lua",
 	-- "pyright",
 	-- "jsonls",
 }
