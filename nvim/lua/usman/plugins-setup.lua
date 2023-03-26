@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
     }
     use "HiPhish/nvim-ts-rainbow2"          -- provides rainbow parentheses
     use "lukas-reineke/indent-blankline.nvim"   -- adds indentation guides to all lines (including empty lines)
-
+    use "windwp/nvim-autopairs"             -- bracket autopairs, integrates with both cmp and treesitter
 
 
     -- colorschemes
