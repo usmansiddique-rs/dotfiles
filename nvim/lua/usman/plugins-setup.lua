@@ -59,15 +59,17 @@ return require('packer').startup(function(use)
     use "williamboman/mason-lspconfig.nvim" -- bridges mason.nvim with nvim-lspconfig
     use "jose-elias-alvarez/null-ls.nvim"   -- inject LSP diagnostics, code actions and more
     -- telescope
-    -- treesitter
+    -- to be added later
     use {
-        "nvim-treesitter/nvim-treesitter",  -- syntax highlighting
+        "nvim-treesitter/nvim-treesitter",  -- treesitter syntax highlighting
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
     }
     use "HiPhish/nvim-ts-rainbow2"          -- provides rainbow parentheses
+    use "lukas-reineke/indent-blankline.nvim"   -- adds indentation guides to all lines (including empty lines)
+
 
 
     -- colorschemes
