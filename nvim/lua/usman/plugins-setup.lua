@@ -61,13 +61,13 @@ return require('packer').startup(function(use)
     -- telescope
     -- treesitter
     use {
-        "nvim-treesitter/nvim-treesitter",
+        "nvim-treesitter/nvim-treesitter",  -- syntax highlighting
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
     }
-    -- use "nvim-treesitter/playground"
+    use "HiPhish/nvim-ts-rainbow2"          -- provides rainbow parentheses
 
 
     -- colorschemes
