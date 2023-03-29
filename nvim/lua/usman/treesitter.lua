@@ -41,6 +41,9 @@ configs.setup {
             -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
             additional_vim_regex_highlighting = false,
         },
+        autopairs = {
+            enable = true,
+        },
         indent = {
             enable = true,
             disable = { "" },
@@ -53,5 +56,9 @@ configs.setup {
             query = 'rainbow-parens',
             -- Highlight the entire buffer all at once
             strategy = require 'ts-rainbow'.strategy.global,
+        },
+        context_commentstring = {
+            enable = true,
+            enable_autocmd = false,
         },
     }

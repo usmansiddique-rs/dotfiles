@@ -70,6 +70,14 @@ return require('packer').startup(function(use)
     use "HiPhish/nvim-ts-rainbow2"          -- provides rainbow parentheses
     use "lukas-reineke/indent-blankline.nvim"   -- adds indentation guides to all lines (including empty lines)
     use "windwp/nvim-autopairs"             -- bracket autopairs, integrates with both cmp and treesitter
+    -- autocomments
+    use {
+        "numToStr/Comment.nvim",            -- smart commenting plugin
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use "JoosepAlviste/nvim-ts-context-commentstring"   -- setting the commentstring option based on the cursor location in the file
 
 
     -- colorschemes

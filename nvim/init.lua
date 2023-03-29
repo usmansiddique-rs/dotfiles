@@ -9,3 +9,4 @@ require "usman.lsp"             -- import the lsp folder
 require "usman.treesitter"      -- import treesitter
 require "usman.indent-blankline"-- import indent blankline
 require "usman.autopairs"       -- import autopairs
+require "usman.comment"         -- import autocomments
