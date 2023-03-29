@@ -33,10 +33,10 @@ keymap("n", "<C-Right>", "<C-w>l", opts)        -- move to pane left
 keymap("n", "<C-Left>", "<C-w>h", opts)         -- move to pane right
 
 -- pane resizing: Ctrl + k/j/l/h
-keymap("n", "<C-k>", ":resize +2<CR>", opts)            -- resize up
-keymap("n", "<C-j>", ":resize -2<CR>", opts)            -- resize down
-keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)   -- resize right
-keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)   -- resize left
+keymap("n", "<C-k>", ":resize +1<CR>", opts)            -- resize up
+keymap("n", "<C-j>", ":resize -1<CR>", opts)            -- resize down
+keymap("n", "<C-l>", ":vertical resize -1<CR>", opts)   -- resize right
+keymap("n", "<C-h>", ":vertical resize +1<CR>", opts)   -- resize left
 
 -- buffer navigation: Shift + l/h
 keymap("n", "<S-l>", ":bnext<CR>", opts)            -- go to next buffer
