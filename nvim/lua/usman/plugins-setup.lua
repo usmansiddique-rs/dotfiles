@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
         end
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"   -- setting the commentstring option based on the cursor location in the file
-
+    use "lewis6991/gitsigns.nvim"           -- super fast git decorations for add, removed, changed lines
 
     -- colorschemes
     use "lunarvim/darkplus.nvim"
