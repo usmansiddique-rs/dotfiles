@@ -38,9 +38,9 @@ keymap("n", "<C-j>", ":resize -1<CR>", opts)            -- resize down
 keymap("n", "<C-l>", ":vertical resize -1<CR>", opts)   -- resize right
 keymap("n", "<C-h>", ":vertical resize +1<CR>", opts)   -- resize left
 
--- buffer navigation: Shift + l/h
-keymap("n", "<S-l>", ":bnext<CR>", opts)            -- go to next buffer
-keymap("n", "<S-h>", ":bprevious<CR>", opts)        -- go to previous buffer
+-- buffer navigation: Shift + left/right
+keymap("n", "<S-Right>", ":bnext<CR>", opts)        -- go to next buffer
+keymap("n", "<S-Left>", ":bprevious<CR>", opts)     -- go to previous buffer
 
 -- tab creation: Leader + to/tx
 keymap("n", "<leader>to", ":tabnew<CR>", opts)      -- open new tab

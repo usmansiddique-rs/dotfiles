@@ -12,3 +12,4 @@ require "usman.autopairs"       -- import autopairs
 require "usman.comment"         -- import autocomments
 require "usman.gitsigns"        -- import gitsigns
 require "usman.nvim-tree"       -- import nvim-tree
+require "usman.bufferline"      -- import bufferline

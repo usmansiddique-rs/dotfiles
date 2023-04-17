@@ -70,19 +70,17 @@ return require('packer').startup(function(use)
     use "HiPhish/nvim-ts-rainbow2"          -- provides rainbow parentheses
     use "lukas-reineke/indent-blankline.nvim"   -- adds indentation guides to all lines (including empty lines)
     use "windwp/nvim-autopairs"             -- bracket autopairs, integrates with both cmp and treesitter
-    -- autocomments
-    use {
-        "numToStr/Comment.nvim",            -- smart commenting plugin
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    use "numToStr/Comment.nvim"             -- smart commenting plugin
     use "JoosepAlviste/nvim-ts-context-commentstring"   -- setting the commentstring option based on the cursor location in the file
     -- git integration
     use "lewis6991/gitsigns.nvim"           -- super fast git decorations for add, removed, changed lines
     -- file explorer
     use "nvim-tree/nvim-web-devicons"       -- nerd font icon support
     use "nvim-tree/nvim-tree.lua"           -- tree file explorer
+    -- buffers
+    use "akinsho/bufferline.nvim"           -- buffer line (with tabpage integration)
+    use "moll/vim-bbye"                     -- delete buffers (close files) without closing your windows or messing your layout
+
 
 
     -- colorschemes
