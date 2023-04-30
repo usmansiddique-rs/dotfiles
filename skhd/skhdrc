@@ -76,8 +76,6 @@ lalt - f : yabai -m window --toggle zoom-fullscreen
 lalt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # balance out tree of windows (resize to occupy same area)
 lalt - e : yabai -m space --balance
-# close window
-lalt + shift - q : yabai -m window --close
 
 # ---------- Starting/Stopping/Restarting Yabai ----------
 # stop/start/restart yabai
