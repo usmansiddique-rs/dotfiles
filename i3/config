@@ -1,4 +1,7 @@
 # media keys config: https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
+# touchpad tap config: https://major.io/2021/07/18/tray-icons-in-i3/#via-the-i3-configuration
+# volume control config: https://major.io/p/i3-volumeicon/
+
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -18,6 +21,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# volume icon
+exec --no-startup-id volumeicon
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -25,29 +30,22 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Use xbacklight to adjust screen brightness controls.
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-
-# Use brightnessctl to adjust screen brightness controls.
-# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%     # incease brightness
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-   # decrease brightness
+# Use light to adjust screen brightness controls.
+# cmd: xrandr --output eDP-1 --brightness 0.5 (doesnt control brightness only emulates it)
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
-# Touchpad single finger touch is left click
-# Touchpad double finger touch is right click
+# Enable touchpad pad single and two finger tap
+exec xinput set-prop "Synaptics s3203" "libinput Tapping Enabled" 1
 
 # Media player controls (uses package playerctl)
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
-# Use amixer to adjust media volume controls.
-# bindsym XF86AudioMute exec amixer sset 'Master' toggle
-# bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-# bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -61,7 +59,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 
-# start rofi (modern dmenu replacement)
+# start rofi (modern dmenu replacement)g
 # bindcode $mod+d exec "rofi -modi drun,run -show drun"
 
 # change window focus
@@ -246,9 +244,9 @@ workspace $ws8 output eDP-1
 workspace $ws10 output eDP-1
 
 # open following applications on startup
-exec_always Google-chrome
-exec_always Code
-exec_always Spotify
+exec_always google-chrome
+exec_always code
+exec_always spotify
 
 # open certain windows on certain workspaces
 # workspace 1
