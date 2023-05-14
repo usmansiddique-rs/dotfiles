@@ -1,6 +1,7 @@
 # media keys config: https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # touchpad tap config: https://major.io/2021/07/18/tray-icons-in-i3/#via-the-i3-configuration
 # volume control config: https://major.io/p/i3-volumeicon/
+# faded lockscreen config: https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -58,11 +59,25 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
+
 # start rofi (modern dmenu replacement)
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 
-# start rofi (modern dmenu replacement)g
-# bindcode $mod+d exec "rofi -modi drun,run -show drun"
+# enable compton for faze effect between workspaces
+# exec --no-startup-id compton -f
+
+# Set a desktop wallpaper (uses package feh)
+exec_always feh --bg-scale ~/Pictures/nice_illustration_wallpaper.jpg
+
+# Setup screens and monitor displays (uses package arandr)
+exec_always xrandr \
+    --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+    --output DP-1 --off --output HDMI-1 --off
+
+# logging out using default lockscreen
+bindsym $mod+Shift+x exec i3lock
+# logging out using custom lockscreen
+# bindsym $mod+Shift+x exec ~/.config/i3/lockscreen.sh
 
 # change window focus
 bindsym $mod+j focus left
@@ -127,8 +142,8 @@ set $ws9 "9: "
 set $ws10 "10: "
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
+bindsym $mod+1 workspace $ws1; layout tabbed
+bindsym $mod+2 workspace $ws2; layout tabbed
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
@@ -179,18 +194,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# ------------------------------ my specific configs
-# logging out
-bindsym $mod+Shift+x exec i3lock
-
-# Set a desktop wallpaper (uses package feh)
-exec_always feh --bg-scale ~/Pictures/nice_illustration_wallpaper.jpg
-
-# Setup screens and monitor displays (uses package arandr)
-exec_always xrandr \
-    --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
-    --output DP-1 --off --output HDMI-1 --off
-
 # i3 color theme base colors
 set $base00 #101218
 set $base01 #1f222d
@@ -217,9 +220,17 @@ client.urgent $base02 $base08 $base07 $base08
 
 # Start i3bar to display a workspace bar plus the system information
 bar {
-    status_command i3status
+    # status_command i3status
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
     tray_output primary
-
+    # status bar position
+    position top
+    # display status bar on every screen
+    # output main_screen
+    # output hdmi
+    # font
+    font pango:CaskaydiaCove Nerd Font Regular 12
+    # i3 status bar colors
     colors {
         separator $base03
         background $base01
@@ -246,9 +257,9 @@ workspace $ws8 output eDP-1
 workspace $ws10 output eDP-1
 
 # open following applications on startup
-exec_always google-chrome
-exec_always code
-exec_always spotify
+exec google-chrome
+exec code
+exec spotify
 
 # open certain windows on certain workspaces
 # workspace 1
