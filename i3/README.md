@@ -4,40 +4,50 @@ To setup this config perform the following steps:
 
 -   install the following packages:
 ```bash
-sudo apt install pactl playerctl xbacklight feh arandr lxappearence rofi compton
+sudo apt install pactl volumeicon-alsa playerctl light feh arandr lxappearence rofi compton i3blocks
 ```
+<!-- sudo apt install scrot imagemagick dbus -->
 
 | Package      | Description                         |
 | :----------- | :---------------------------------- |
 | pactl        | enable volume key functionality     |
+| volumeicon   | add volume icon                     |
 | playerctl    | enable multimedia key functionality |
-| xbacklight   | enable screen brightness            |
+| light        | enable screen brightness            |
 | feh          | set wallpapers                      |
 | arandr       | configure screen resolutions        |
 | lxappearence | change GTK system config            |
 | rofi         | dmenu alternative app launcher      |
 | compton      | make windows transparent            |
+| i3blocks     | configuring i3 status bar           |
+<!-- | scrot        | screen capturing application for transparent lockscreen | -->
+<!-- | imagemagick  | for editing digital images                              | -->
+<!-- | dbus         | to pase spotify on lockscreen                           | -->
 
+<!-- * ========================================== valid configs -->
 
-
-
--   copy the folder i3 in ~/.config
+#### 1. Install volume control
 ```bash
-cp -rv $(git rev-parse --show-toplevel)/i3 ~/.config
+mkdir -p ~/.config/volumeicon
+cp -rv ./volumeicon ~/.config/volumeicon
 ```
-- use lxappearence to change:
-gtk theme:
-gtk font:
-gtk icon theme:
-mouse cursor:
 
+#### 2. Setup brightness control
+```bash
+sudo apt install light
+sudo chmod +s /usr/bin/light
+```
 
+#### 3. Replace dmenu with rofi
+-   Rofi enabled by default in config. Simply copy and paste teh rof config.
+```bash
+cp -rv ./rofi/ ~/.config/
+```
 
-## NOTES
+<!-- setup polybar -->
 
-### Install catppuccine theme for:
-
-1.  GTK
+#### 4. Install catppuccine themes for:
+1. GTK
     -   Git repository: [here](https://github.com/catppuccin/gtk)
     -   **How to install**
         ```bash
@@ -61,13 +71,7 @@ mouse cursor:
         -   set favourite theme in gnome-terminal preferences.
     -   Preferred theme: Catppuccin Mocha
 
-4.  Alacritty
-    -   Git repository: [here](https://github.com/catppuccin/alacritty)
-    -   **How to install**
-        -   clone the repo:
-        -   import your respective config in the yaml file.
-
-5. Gedit
+4. Gedit
     -   Git repository: [here](https://github.com/catppuccin/gedit)
     -   **How to install**
         -   clone the repo.
@@ -75,7 +79,33 @@ mouse cursor:
         -   set favourite theme in gedit preferences.
     -   Preferred theme: Catppuccin Mocha
 
-6.  Moka icon theme
+5.  Rofi
+    -   Git repository: [here](https://github.com/catppuccin/rofi.git)
+    -   **How to install**
+        -   clone the repo
+
+### 5. Copy the entire i3 config folder in `~/.config`
+```bash
+cp -rv $(git rev-parse --show-toplevel)/i3 ~/.config
+```
+
+
+
+
+
+<!-- ! ========================================== incorrect config  -->
+
+#### Modify lockscreen
+-   Download the lock icon from [this](https://www.iconfinder.com/icons/299105/lock_icon) page.
+```bash
+wget https://www.iconfinder.com/icons/299105/download/png/512 ~/Pictures/lock_icon.png
+cp -rv i3/lockscreen.sh ~/.config/i3
+chmod +x ~/.config/i3/lockscreen.sh
+```
+
+<!-- TODO: ========================================== correct config but will add in final draft later -->
+
+#### Moka icon theme
     -   [Web page](https://snwh.org/moka/download)
     -   **How to install**
     ```bash
