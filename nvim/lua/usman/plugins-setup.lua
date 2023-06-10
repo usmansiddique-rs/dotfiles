@@ -30,10 +30,10 @@ return require('packer').startup(function(use)
     -- install packer
     use("wbthomason/packer.nvim")
     use("nvim-lua/plenary.nvim")
-    
+
     -- themes
     use("bluz71/vim-nightfly-colors")       -- https://github.com/bluz71/vim-nightfly-colors
-    -- use("patstockwell/vim-monokai-tasty")   -- https://github.com/patstockwell/vim-monokai-tasty 
+    -- use("patstockwell/vim-monokai-tasty")   -- https://github.com/patstockwell/vim-monokai-tasty
     -- use("EdenEast/nightfox.nvim")           -- https://github.com/EdenEast/nightfox.nvim
     -- use("morhetz/gruvbox")
     -- tmux and split window navigation")
