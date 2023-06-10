@@ -24,7 +24,7 @@ lalt - 6 : yabai -m space --focus 6
 lalt - 7 : yabai -m space --focus 7
 lalt - 8 : yabai -m space --focus 8
 lalt - 9 : yabai -m space --focus 9
-lalt - 0 : yabai -m space --focus 0
+lalt - 0 : yabai -m space --focus 10
 
 # change focus between external displays (left and right)
 lalt - m : yabai -m display --focus east
@@ -54,13 +54,13 @@ lalt + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
 lalt + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
 lalt + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
 lalt + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
-lalt + shift - 0 : yabai -m window --space 0; yabai -m space --focus 0
+lalt + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # move windows between external displays (left and right)
 lalt + shift - m : yabai -m display --warp east
 lalt + shift - n : yabai -m display --warp west
 
-# move windows between external displays (left and right)
+# swap windows between external displays (left and right)
 lalt + shift + ctrl - m : yabai -m display --swap east
 lalt + shift + ctrl - n : yabai -m display --swap west
 
